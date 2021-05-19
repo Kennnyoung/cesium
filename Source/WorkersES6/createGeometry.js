@@ -1,22 +1,5 @@
-/* global require */
-import defined from "../Core/defined.js";
-import PrimitivePipeline from "../Scene/PrimitivePipeline.js";
-import when from "../ThirdParty/when.js";
-import createTaskProcessorWorker from "./createTaskProcessorWorker.js";
-
-var moduleCache = {};
-
-function getModule(moduleName) {
-  var module = moduleCache[moduleName];
-  if (!defined(module)) {
-    if (typeof exports === "object") {
-      // Use CommonJS-style require.
-      moduleCache[module] = module = require("Workers/" + moduleName);
-    } else {
-      // Use AMD-style require.
-      // in web workers, require is synchronous
-      require(["Workers/" + moduleName], function (f) {
-        module = f;
+import f from "Workers/" + moduleNam.js';
+module = f;
         moduleCache[module] = f;
       });
     }
@@ -44,10 +27,7 @@ function createGeometry(parameters, transferableObjects) {
   }
 
   return when.all(resultsOrPromises, function (results) {
-    return PrimitivePipeline.packCreateGeometryResults(
+export default PrimitivePipeline.packCreateGeometryResults(
       results,
       transferableObjects
     );
-  });
-}
-export default createTaskProcessorWorker(createGeometry);
