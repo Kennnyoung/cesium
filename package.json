@@ -130,6 +130,7 @@
     "deploy-set-version": "gulp deploy-set-version",
     "prettier": "prettier --write \"**/*\"",
     "prettier-check": "prettier --check \"**/*\"",
-    "pretty-quick": "pretty-quick"
+    "pretty-quick": "pretty-quick",
+    "install": "gulp minifyRelease"
   }
 }
